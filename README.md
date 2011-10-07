@@ -1,8 +1,9 @@
 ### node-finance
 
-**node-finance** is an equity-based financial framework for Node.js.
+An equity-based financial framework for Node.js.
 
-Plan to include tools, utilities, and functions for the following:
+Plan to include support for the following:
+
 * Stocks
 * Bonds
 * Options
@@ -15,15 +16,14 @@ Plan to include tools, utilities, and functions for the following:
 	node app
 
 ### License
-node-explorer: A finance library for Node.js.
-Copyright (C) 2011 Jeffrey Portman & Dan Simmons
+** Copyright (C) 2011 Jeffrey Portman & Dan Simmons **
 
-node-finance is free software: you can redistribute it and/or modify
+This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-node-finance is distributed in the hope that it will be useful,
+This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
