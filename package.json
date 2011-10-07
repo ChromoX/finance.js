@@ -3,7 +3,7 @@
 	"description":	"An equity-based financial framework for Node.js.",
 	"version": 		"0.0.1",
 	"author": 		[
-		"Jeffrey Portman <chromox@gmail.com>,
+		"Jeffrey Portman <chromox@gmail.com>",
 		"Dan Simmons <xiode04@gatech.edu>"
 	],
 	"repositories": {
