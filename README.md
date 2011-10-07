@@ -16,7 +16,7 @@ Plan to include support for the following:
 	node app
 
 ### License
-** Copyright (C) 2011 Jeffrey Portman & Dan Simmons **
+**Copyright (C) 2011 Jeffrey Portman & Dan Simmons**
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
