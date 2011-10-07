@@ -1,5 +1,5 @@
-{
-    "name":			"node-finance",
+{ 
+	"name":			"node-finance",
 	"description":	"An equity-based financial framework for Node.js.",
 	"version": 		"0.0.1",
 	"author": 		[
@@ -10,9 +10,9 @@
 		"type": 	"git",
 		"url": 		"git://github.com/ChromoX/node-finance.git"
 	},
-  	"dependencies": {},
+  	"dependencies":	{},
 	"engines": 		{ "node": ">= 0.4.9" },
-	"directories": 	{},
+	"directories":	{},
 	"main": 		{},
 	"bin":			{}
 }
