@@ -24,4 +24,4 @@ class BlackScholes
 			
 			
 b = new BlackScholes
-console.log b.calculate "c", 18.00, 17.00, 15/365, 0.5, .21
+console.log b.calculate "c", 18.00, 17.00, 0.05, 0.5, .21

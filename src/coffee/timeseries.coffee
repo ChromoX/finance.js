@@ -9,7 +9,7 @@ class TimeSeries
 		### Idea for Data Sources
 			Data sources take whatever data source they are pulling from and 
 			will eventually convert it into the standard from of 
-			{point:Date()/Number/Anything Sortable, date: Object}
+			{point:Date()/Number/Anything Sortable, data: Object}
 			
 			Side-Note: I used the name point in regards to a time point, which I think
 			is a generic enough name so that you get the idea that the time point in the 
@@ -63,4 +63,15 @@ class TimeSeries
 	###
 	## Appends to the end of the time series
 	append: (object) ->
+		
+		
+	## Sorts series by key; currently assuming
+	sort: (key) ->
+		@series.sort (a, b) ->
+				if a["data"][key] < b["data"][key]
+					return -1
+				else if a["data"][key] > b["data"][key]
+					return 1
+				else
+					return 0
 		
