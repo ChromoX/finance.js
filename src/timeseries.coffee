@@ -5,6 +5,7 @@ class TimeSeries
 		Load from JSON
 	###
 	constructor: ->
+		@series = []
 		@datasource = {}
 		### Idea for Data Sources
 			Data sources take whatever data source they are pulling from and 
@@ -30,7 +31,7 @@ class TimeSeries
 			I imagine Data Sources for Stocks Data(Google, Yahoo, IB, Etc...), 
 			Options Data(Google, Yahoo, Etc...), Etc...
 		###
-		@series = []
+		@calculations = []
 		### Idea for calculations...
 			Allow calculation objects to be attached to a time series
 			such that the current calculation at that current point gets
@@ -52,8 +53,7 @@ class TimeSeries
 					
 				After adding a calculation:
 					[Date(), {close: Number, volume: Number, 20daymovingavg: Number}]
-		###		
-		@calculations = []
+		###
 		
 	### Object must have a date and data object
 	
@@ -61,10 +61,6 @@ class TimeSeries
 			{ point: Date()
 			  data: {} }
 	###
-	## Appends to the end of the time series
-	append: (object) ->
-		
-		
 	## Sorts series by key; currently assuming
 	sort: (key) ->
 		@series.sort (a, b) ->
@@ -74,4 +70,3 @@ class TimeSeries
 					return 1
 				else
 					return 0
-		
