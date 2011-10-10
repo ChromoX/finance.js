@@ -1,1 +1,13 @@
-Add lists of things to do and/or ideas here to keep organized
+Add lists of things to do and/or ideas here to keep organized.
+
+
+Thought 10/10:
+	- Create Calculation class/object.  Have it automatically spawn and manage web workers for
+		the sake of computational distribution.  Then, most calculations we would like to perform 
+		(ex: DI+, DI-, RSI, etc.. in the case of stocks) inherits from calculation.
+
+		ex:		var Calculation = require('calulation.js');
+				var RSI = new Calculation.RSI(data);
+				RSI.calculate(period);
+				var DI = new Calculation.DI(data);
+				DI.calculate(period);
