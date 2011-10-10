@@ -10,7 +10,7 @@
 		"type": 	"git",
 		"url": 		"git://github.com/ChromoX/node-finance.git"
 	},
-  	"dependencies":	{},
+  	"dependencies":	{ "colors": ">=0.0.1" },
 	"engines": 		{ "node": ">= 0.4.9" },
 	"directories":	{},
 	"main": 		{},
