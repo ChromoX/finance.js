@@ -8,6 +8,7 @@ Plan to include support for the following:
 * Bonds
 * Options
 * Forex
+* Futures
 
 ### Install
 	git clone git@github.com:ChromoX/node-finance.git

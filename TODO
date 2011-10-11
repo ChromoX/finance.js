@@ -11,3 +11,21 @@ Thought 10/10:
 				RSI.calculate(period);
 				var DI = new Calculation.DI(data);
 				DI.calculate(period);
+
+
+Thoughts on Calculations:
+	- Create Calculation class with a method called calculateAsync that implements
+		the starting of a worker sending the message to the worker, and retrieving
+		the message and returning it, but this calculateAsync method will call to 
+		the current objects calculate method to calculate the result
+	- All types of calculations inherit from Calculation and can be called in a
+		blocking manner and in an Async manner fo free!
+	- If we follow the idea above then we would "attach" a Calculation object to
+		a time series and then the time series would deal with either calculating
+		in a blocking manner or a Async manner. Also for ease of passing the data
+		in the time series around I think its better to have calculations in house
+		and call them using the parents instance(using .call(<calculate function>, this))
+	- We should look into the new ECMAScript 5 calls that protects objects and makes
+		them immutable until you unlock them. This would guard from rouge calculations
+		messing with a time series(if we ever get into allowing people code there own
+		from a web interface)
