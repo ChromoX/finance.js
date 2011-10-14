@@ -7,30 +7,6 @@ class TimeSeries
 	constructor: ->
 		@series = []
 		@datasource = {}
-		### Idea for Data Sources
-			Data sources take whatever data source they are pulling from and 
-			will eventually convert it into the standard from of 
-			{point:Date()/Number/Anything Sortable, data: Object}
-			
-			Side-Note: I used the name point in regards to a time point, which I think
-			is a generic enough name so that you get the idea that the time point in the 
-			series could be a number or date or really anything that could be turned into
-			an ordered set
-		
-			Data Sources are essentially queues acting as a buffer for incoming or parsed data
-			
-			Data Sources if they are of type "streaming" then they will raise event called data
-			every time they have some data to give to someone else, they can have multiple 
-			subscribers
-			
-			Data Sources if they are of type "static" then you can either ask for either end
-			of the queue(and that would pop the element off), or you can ask the queue to
-			do a playback of its static data (therefore raising events such that you could
-			back test easily).
-			
-			I imagine Data Sources for Stocks Data(Google, Yahoo, IB, Etc...), 
-			Options Data(Google, Yahoo, Etc...), Etc...
-		###
 		@calculations = []
 		### Idea for calculations...
 			Allow calculation objects to be attached to a time series
@@ -54,14 +30,6 @@ class TimeSeries
 				After adding a calculation:
 					[Date(), {close: Number, volume: Number, 20daymovingavg: Number}]
 		###
-		
-	### Object must have a date and data object
-	
-		Ex:
-			{ point: Date()
-			  data: {} }
-	###
-	## Sorts series by key; currently assuming
 	sort: (key) ->
 		@series.sort (a, b) ->
 				if a["data"][key] < b["data"][key]
@@ -70,3 +38,42 @@ class TimeSeries
 					return 1
 				else
 					return 0
+					
+	length: () -> return @series.length	
+	range: () -> return @series.length
+	domain: () -> return @series.length
+	
+	attach: (obj) ->
+		if obj.type == "ohlc+v"
+			@datasource = obj
+			## Data Source
+			obj.on "data", (data) ->
+				@process(data)
+			if obj.mode == "static"
+				obj.playback 0
+				
+	process: (obj) ->
+		if obj.date? and obj.data?
+			@series.push obj
+	
+	get: (obj) ->
+		if typeof obj == "number"
+			return @series[obj]
+		if typeof obj == "array"
+			if obj.length == 2
+				return @series[obj[0]...obj[1]]
+			else
+				return (num for num in obj)
+		if typeof obj == "object"
+			return
+			#Two Queries, start and end date
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

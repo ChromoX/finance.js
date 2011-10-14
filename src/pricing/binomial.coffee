@@ -25,6 +25,3 @@ class Binomial
 					exercise = strike - underlyingPrice * Math.pow(up, (2*i - j))
 				if tree[i] < exercise then tree[i] = exercise
 		return tree[0]
-		
-b = new Binomial
-console.log b.calculate "call", 18.00, 0, 17.00, 0.05, 0.5, 0.21

@@ -21,7 +21,3 @@ class BlackScholes
 		else
 			k = 1.0 / (1.0 + 0.2316419 * x);
 			return 1.0 - Math.exp(-x * x / 2.0)/ Math.sqrt(2*Math.PI) * k * (a1 + k * (-0.356563782 + k * (1.781477937 + k * (-1.821255978 + k * 1.330274429))))
-			
-			
-b = new BlackScholes
-console.log b.calculate "c", 18.00, 17.00, 0.05, 0.5, .21
