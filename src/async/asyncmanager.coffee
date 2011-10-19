@@ -58,7 +58,7 @@ class AsyncManager
 	createWorker: () ->
 		if not @asyncPossible
 			return false
-		worker = new @workerImplmentation('/Users/Jeffrey/Documents/node-finance/src/calcthread.js')
+		worker = new @workerImplmentation('calcthread.js')
 		worker.onmessage = @_onMessage
 		@workers.push {working: false, worker: worker}
 		return @workers[@workers.length-1]
