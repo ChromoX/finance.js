@@ -3,7 +3,7 @@ util = require 'util'
 require 'colors'
 
 {exec} = require 'child_process'
-{basename, join} = require 'path'
+{basename, join, existsSync} = require 'path'
 
 srcCoffeeDir = 'src'
 targetJsDir = 'lib'
@@ -31,7 +31,7 @@ task 'coffeeFiles', 'How many coffee scripts do we have?', ->
 					traverseFileSystem currentFile
 	
 	traverseFileSystem "#{srcCoffeeDir}"
-	util.log "#{appFiles.length} coffee files found.".grey
+	util.log "#{appFiles.length} coffee files found. Combining and compiling...".cyan
 	return appFiles
 
 task 'build', 'Build single application file from source files', ->
@@ -53,13 +53,23 @@ task 'build', 'Build single application file from source files', ->
 					fs.unlink outputFileName+".coffee", (err) ->
 						if err
 							util.log "Could't delete the #{outputFileName}.coffee file.".bold.yellow
-					util.log 'Done building coffee file.'.green
+					util.log 'node-finance.js built successfully!'.green
+					util.log 'Producing minified version...'.cyan
+					invoke 'minify'
+					util.log 'Minified!'.green
 
 task 'watch', 'Watch source files and build changes', ->
 	invoke 'build'
-	util.log "Watching for changes in #{srcCoffeeDir}".grey
+	util.log "Watching for changes in #{srcCoffeeDir}".cyan
 	for file in appFiles then do (file) ->
 		fs.watchFile file, (curr, prev) ->
 			if +curr.mtime isnt +prev.mtime
-				util.log "Saw change in #{file}".grey
+				util.log "Saw change in #{file}".cyan
 				invoke 'build'
+
+# Not as elaborate as it could be, will come back to later
+task 'minify', 'Call uglify-js on node-finance.js', ->
+	mainExists = existsSync './node-finance.js'
+	if mainExists
+		exec './node_modules/uglify-js/bin/uglifyjs -o node-finance_min.js node-finance.js'
+		
