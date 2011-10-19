@@ -1,12 +1,14 @@
 ### node-finance
 
-An equity-based financial framework for Node.js.
+A financial library for Node.js that aims to work both on the browser as a pure Javascript library and/or on the server-side on top of Node.js.
+
+**Goal:** To provide a toolkit of financial computations / simulations that will allow a developer to rapidly create strategies, alerts, etc...
 
 Plan to include support for the following:
 
-* Stocks
-* Bonds
-* Options
+* Equities
+* Bonds (corporate, municipal)
+* Derivative Securities
 * Forex
 * Futures
 
@@ -14,7 +16,8 @@ Plan to include support for the following:
 	git clone git@github.com:ChromoX/node-finance.git
 	cd node-finance
 	npm install -d
-	node app
+	npm install -g coffee-script
+	cake build
 
 ### License
 **Copyright (C) 2011 Jeffrey Portman & Dan Simmons**

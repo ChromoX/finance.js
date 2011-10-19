@@ -1,31 +1,7 @@
 Add lists of things to do and/or ideas here to keep organized.
 
+	-Need to change places where we assume coffeescript is installed globally with NPM to having it use the node_modules version installed with 'npm install -d'.
 
-Thought 10/10:
-	- Create Calculation class/object.  Have it automatically spawn and manage web workers for
-		the sake of computational distribution.  Then, most calculations we would like to perform 
-		(ex: DI+, DI-, RSI, etc.. in the case of stocks) inherits from calculation.
+	- Look over flags for uglify-js, see if we can find some more useful ones.  Obfuscate perhaps?
 
-		ex:		var Calculation = require('calulation.js');
-				var RSI = new Calculation.RSI(data);
-				RSI.calculate(period);
-				var DI = new Calculation.DI(data);
-				DI.calculate(period);
-
-
-Thoughts on Calculations:
-	- Create Calculation class with a method called calculateAsync that implements
-		the starting of a worker sending the message to the worker, and retrieving
-		the message and returning it, but this calculateAsync method will call to 
-		the current objects calculate method to calculate the result
-	- All types of calculations inherit from Calculation and can be called in a
-		blocking manner and in an Async manner fo free!
-	- If we follow the idea above then we would "attach" a Calculation object to
-		a time series and then the time series would deal with either calculating
-		in a blocking manner or a Async manner. Also for ease of passing the data
-		in the time series around I think its better to have calculations in house
-		and call them using the parents instance(using .call(<calculate function>, this))
-	- We should look into the new ECMAScript 5 calls that protects objects and makes
-		them immutable until you unlock them. This would guard from rouge calculations
-		messing with a time series(if we ever get into allowing people code there own
-		from a web interface)
+	- While I'm thinking about it, Jeffrey: PLEASE modify your word-wrap to be shorter.  I typically have a given Vim window that spans half of my screen (all of which are 1920x1080), because either I have 1/2 browser + 1/2 Vim or two split-pane Vim's that are 1/2 each.  But a lot of the files you've written (notably the Cakefile) wrap to the point that it's illegible because I can't reasonably parse indentation with my eyes.
