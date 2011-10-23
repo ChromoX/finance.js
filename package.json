@@ -1,6 +1,6 @@
 { 
-	"name":			"node-finance",
-	"description":	"An equity-based financial framework for Node.js.",
+	"name":			"finance.js",
+	"description":	"A financial framework for the manipulation of equities, derivatives securities, foreign exchange currencies, and debt instruments. Built in Node.js, but aims to work on both the browser-side as a standalone library and/or on the server-side on top of Node. Provides core functionality and a very modular plugin architecture such that higher-level programs can easily be written on top of the library as an abstraction layer.",
 	"version": 		"0.0.1",
 	"author": 		[
 		"Jeffrey Portman <chromox@gmail.com>",
@@ -8,7 +8,7 @@
 	],
 	"repositories": {
 		"type": 	"git",
-		"url": 		"git://github.com/ChromoX/node-finance.git"
+		"url": 		"git://github.com/ChromoX/finance.js.git"
 	},
   	"dependencies":	{ 
 		"colors": ">=0.0.1",
@@ -16,8 +16,8 @@
 		"webworker": ">=0.0.1",
 		"coffee-script": ">=0.0.1"
 	},
-	"engines": 		{ "node": ">= 0.4.9" },
-	"directories":	{},
-	"main": 		{},
-	"bin":			{}
+	"engines": 		{ "node": ">= 0.4.9 && <= 0.4.12" },
+	"directories":	{ "src": "./src" },
+	"main": 		{ "finance.js": "./finance.js" },
+	"bin":			{ "finance.js": "./finance.js" }
 }

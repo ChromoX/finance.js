@@ -8,7 +8,7 @@ require 'colors'
 srcCoffeeDir = 'src'
 targetJsDir = 'lib'
 
-outputFileName = 'node-finance'
+outputFileName = 'finance'
 
 coffeeOpts = "--bare --output #{targetJsDir} --compile #{srcCoffeeDir}"
 coffeeOptsBare = "--bare"
@@ -53,7 +53,7 @@ task 'build', 'Build single application file from source files', ->
 					fs.unlink outputFileName+".coffee", (err) ->
 						if err
 							util.log "Could't delete the #{outputFileName}.coffee file.".bold.yellow
-					util.log 'node-finance.js built successfully!'.green
+					util.log 'finance.js built successfully!'.green
 					util.log 'Producing minified version...'.cyan
 					invoke 'minify'
 					util.log 'Minified!'.green
@@ -68,8 +68,8 @@ task 'watch', 'Watch source files and build changes', ->
 				invoke 'build'
 
 # Not as elaborate as it could be, will come back to later
-task 'minify', 'Call uglify-js on node-finance.js', ->
-	mainExists = existsSync './node-finance.js'
+task 'minify', 'Call uglify-js on finance.js', ->
+	mainExists = existsSync './finance.js'
 	if mainExists
-		exec './node_modules/uglify-js/bin/uglifyjs -o node-finance_min.js node-finance.js'
+		exec './node_modules/uglify-js/bin/uglifyjs -o finance_min.js finance.js'
 		

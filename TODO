@@ -1,7 +1,11 @@
 Add lists of things to do and/or ideas here to keep organized.
 
-	-Need to change places where we assume coffeescript is installed globally with NPM to having it use the node_modules version installed with 'npm install -d'.
+	- Side-thought, but I believe I saw that require(../) was removed in a newer version of Node.  We should go ahead and accommodate this now rather than having it break when that version becomes stable.
+
+	- Come up with plugin architecture and define what's to be the core.
+
+	- Modify build script to enforce ordering (platform independent). Needs to be more robust anyway.  Look at Jquery Makefile for ideas.
+
+	- Need to change places where we assume coffeescript is installed globally with NPM to having it use the node_modules version installed with 'npm install -d'.
 
 	- Look over flags for uglify-js, see if we can find some more useful ones.  Obfuscate perhaps?
-
-	- While I'm thinking about it, Jeffrey: PLEASE modify your word-wrap to be shorter.  I typically have a given Vim window that spans half of my screen (all of which are 1920x1080), because either I have 1/2 browser + 1/2 Vim or two split-pane Vim's that are 1/2 each.  But a lot of the files you've written (notably the Cakefile) wrap to the point that it's illegible because I can't reasonably parse indentation with my eyes.
